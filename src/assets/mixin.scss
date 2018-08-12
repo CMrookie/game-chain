@@ -1,0 +1,64 @@
+@mixin _fixImageSizeWithWidth($w, $imgW, $imgH){
+  width: $w*100%;
+  padding-top: $imgH / ($imgW / $w) * 100%;
+}
+
+@mixin _borderRadius($tl: 6px, $tr: 6px, $bl: 6px, $br: 6px){
+  border-top-left-radius: $tl;
+  border-top-right-radius: $tr;
+  border-bottom-left-radius: $bl;
+  border-bottom-right-radius: $br;
+}
+
+@mixin _textGradient($fc1: #fff, $fc2: #ffa6d8, $sc: #004eff){
+  position: relative;
+  background: -webkit-linear-gradient(to bottom, #fff, #ffa6d8);
+  background: linear-gradient(to bottom, #fff, #ffa6d8);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 12px;
+  &:after{
+      position: absolute;
+      content: attr(text);
+      top: 0;
+      left: 0;
+      z-index: -1;
+      text-shadow: 0 0.5px #004eff, 0.5px 0 #004eff, -0.5px 0 #004eff, 0 -0.5px #004eff;
+  }
+}
+
+@mixin _shadow ($col: #ff416e){
+  -webkit-box-shadow: -1px 0px 0 1px $col;
+  -moz-box-shadow: -1px 0px 0 1px $col;
+  box-shadow: -1px 0px 0 1px $col;
+}
+
+@mixin _transCenter($l:0, $t:0, $tx:0, $ty:0){
+  position: absolute;
+  left: $l;
+  top: $t;
+  -webkit-transform: translate($tx, $ty);
+  -moz-transform: translate($tx, $ty);
+  -ms-transform: translate($tx, $ty);
+  -o-transform: translate($tx, $ty);
+  transform: translate($tx, $ty);
+}
+
+@mixin _posCenter($pos: absolute, $l: 0, $r: 0, $t: 0, $b: 0) {
+  position: $pos;
+  left: $l;
+  right: $r;
+  top: $t;
+  bottom: $b;
+  margin: auto;
+}
+
+@mixin _btn () {
+  width: 50px;
+  padding: 2px;
+  margin: auto;
+  border: 1px solid $mainBtnClr;
+  border-radius: 40px;
+  color: $mainBtnClr;
+  font-size: 12px;
+}
